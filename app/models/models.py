@@ -17,7 +17,7 @@ class User(Base):
 class Project(Base):
     __tablename__ = "projects"
     
-    id = Column(String, primary_key=True, index=True)
+    id = Column(String, primary_key=True, index=True, default=lambda: str(uuid4()))
     title = Column(String, index=True)
     description = Column(Text)
     location = Column(String)
