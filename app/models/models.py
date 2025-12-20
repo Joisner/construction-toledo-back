@@ -47,7 +47,7 @@ class ProjectMedia(Base):
 class Service(Base):
     __tablename__ = "services"
     
-    id = Column(String, primary_key=True, index=True)
+    id = Column(String, primary_key=True, index=True, default=lambda: str(uuid4()))
     title = Column(String, index=True)
     description = Column(Text)
     details = Column(Text)
@@ -59,7 +59,7 @@ class Service(Base):
 class Quote(Base):
     __tablename__ = "quotes"
     
-    id = Column(String, primary_key=True, index=True)
+    id = Column(String, primary_key=True, index=True, default=lambda: str(uuid4()))
     name = Column(String)
     email = Column(String)
     phone = Column(String)
