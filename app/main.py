@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
-from app.api import auth, projects, services, quotes
+from app.api import auth, projects, services, quotes, users
+from app.api import budgets, invoices
 from app.models.database import create_tables
 from app.models.models import Base
 from fastapi.staticfiles import StaticFiles
@@ -64,6 +65,9 @@ app.include_router(auth.router, prefix=f"{settings.API_V1_STR}/auth", tags=["aut
 app.include_router(projects.router, prefix=f"{settings.API_V1_STR}/projects", tags=["projects"])
 app.include_router(services.router, prefix=f"{settings.API_V1_STR}/services", tags=["services"])
 app.include_router(quotes.router, prefix=f"{settings.API_V1_STR}/quotes", tags=["quotes"])
+app.include_router(users.router, prefix=f"{settings.API_V1_STR}/users", tags=["users"])
+app.include_router(budgets.router, prefix=f"{settings.API_V1_STR}/budgets", tags=["budgets"])
+app.include_router(invoices.router, prefix=f"{settings.API_V1_STR}/invoices", tags=["invoices"])
 
 @app.get("/")
 def root():

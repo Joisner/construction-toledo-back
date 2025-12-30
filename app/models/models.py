@@ -1,5 +1,5 @@
 from uuid import uuid4
-from sqlalchemy import Boolean, Column, String, Text, ForeignKey, DateTime
+from sqlalchemy import Boolean, Column, String, Text, ForeignKey, DateTime, JSON
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from .database import Base
@@ -68,3 +68,39 @@ class Quote(Base):
     status = Column(String, default="pending")  # pending, contacted, completed, rejected
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+
+class Budget(Base):
+    __tablename__ = "budgets"
+
+    id = Column(String, primary_key=True, index=True, default=lambda: str(uuid4()))
+    number = Column(String, index=True)
+    date = Column(DateTime)
+    clientName = Column(String)
+    clientAddress = Column(Text)
+    clientDNI = Column(String, nullable=True)
+    clientPhone = Column(String, nullable=True)
+    clientEmail = Column(String, nullable=True)
+    items = Column(JSON)
+    taxRate = Column(String, nullable=True)
+    validUntil = Column(DateTime, nullable=True)
+    conditions = Column(Text, nullable=True)
+    iban = Column(String, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class Invoice(Base):
+    __tablename__ = "invoices"
+
+    id = Column(String, primary_key=True, index=True, default=lambda: str(uuid4()))
+    number = Column(String, index=True)
+    date = Column(DateTime)
+    clientName = Column(String)
+    clientAddress = Column(Text)
+    clientDNI = Column(String, nullable=True)
+    clientPhone = Column(String, nullable=True)
+    clientEmail = Column(String, nullable=True)
+    items = Column(JSON)
+    taxRate = Column(String, nullable=True)
+    iban = Column(String, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
