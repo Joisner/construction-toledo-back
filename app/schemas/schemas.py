@@ -52,6 +52,8 @@ class ProjectBase(BaseModel):
     service: str
     completion_date: datetime
     is_active: bool = True
+    # URL of the project's final/main image used for cards in the frontend
+    main_image: Optional[str] = None
 
 class ProjectCreate(ProjectBase):
     pass
@@ -61,6 +63,7 @@ class Project(ProjectBase):
     created_at: datetime
     updated_at: datetime
     media: List[ProjectMedia] = []
+    main_image: Optional[str] = None
 
     class Config:
         from_attributes = True

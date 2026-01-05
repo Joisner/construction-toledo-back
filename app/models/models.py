@@ -26,6 +26,8 @@ class Project(Base):
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    # URL for the project's final / main image used in frontend cards
+    main_image = Column(String, nullable=True)
     
     # relación con medios (imágenes y vídeos)
     media = relationship("ProjectMedia", back_populates="project")

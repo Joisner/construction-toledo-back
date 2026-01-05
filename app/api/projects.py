@@ -108,6 +108,53 @@ def upload_project_media(
     return media
 
 
+@router.post("/{project_id}/main-image", response_model=schemas.Project)
+def upload_project_main_image(
+    *,
+    project_id: str,
+    file: UploadFile = File(...),
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(deps.get_current_active_admin),
+) -> Any:
+    """
+    Upload a single image to be used as the project's final/main image (used for frontend cards).
+    Stores file in `uploads/projects/{project_id}` and updates the project's `main_image` field.
+    """
+    project = db.query(models.Project).filter(models.Project.id == project_id).first()
+    if not project:
+        raise HTTPException(status_code=404, detail="Project not found")
+
+    # Validate file (mime + size)
+    validate_file(file)
+
+    project_dir = os.path.join(UPLOAD_DIR, project_id)
+    os.makedirs(project_dir, exist_ok=True)
+
+    # remove previous main image file if present
+    try:
+        if project.main_image:
+            old_filename = os.path.basename(project.main_image)
+            old_path = os.path.join(project_dir, old_filename)
+            if os.path.exists(old_path):
+                os.remove(old_path)
+    except Exception:
+        # ignore deletion errors
+        pass
+
+    filename = f"main_{uuid4().hex}_{file.filename}"
+    file_path = os.path.join(project_dir, filename)
+    with open(file_path, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+
+    file_url = f"/uploads/projects/{project_id}/{filename}"
+    project.main_image = file_url
+    project.updated_at = datetime.utcnow()
+    db.add(project)
+    db.commit()
+    db.refresh(project)
+    return project
+
+
 def validate_file(file: UploadFile) -> None:
     """Validate mime type and size according to settings."""
     content_type = file.content_type or "application/octet-stream"
