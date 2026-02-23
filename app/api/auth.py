@@ -10,7 +10,7 @@ from app.models import models
 from app.schemas import schemas
 router = APIRouter()
 # NOTE: module-level debugger removed. Use a breakpoint inside endpoints to inspect request data.
-@router.post("/login", response_model=schemas.Token)
+@router.post("/login", response_model=schemas.TokenWithUser)
 def login(
     db: Session = Depends(get_db),
     form_data: OAuth2PasswordRequestForm = Depends()
@@ -34,14 +34,11 @@ def login(
     
     access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
     return {
-        "is_admin": user.is_admin,
-        "username": user.username,
-        "email": user.email,
-        "is_active": user.is_active,
         "access_token": security.create_access_token(
             data={"sub": user.id}, expires_delta=access_token_expires
         ),
         "token_type": "bearer",
+        "user": user,
     }
 
 @router.post("/register", response_model=schemas.User)

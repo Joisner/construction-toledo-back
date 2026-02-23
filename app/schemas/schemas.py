@@ -112,6 +112,23 @@ class Token(BaseModel):
     access_token: str
     token_type: str
 
+# Public user shape for token responses: allow local emails like 'admin@localhost'
+class TokenUser(BaseModel):
+    id: str
+    username: str
+    email: str
+    is_admin: bool
+    is_active: bool
+
+    class Config:
+        from_attributes = True
+
+
+class TokenWithUser(BaseModel):
+    access_token: str
+    token_type: str
+    user: TokenUser
+
 class TokenPayload(BaseModel):
     sub: str
     exp: datetime
