@@ -1,0 +1,40 @@
+# Version control
+.git
+.gitignore
+
+# Virtual environments
+.venv*/
+venv*/
+venv-toledo-back/
+ENV/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local databases
+*.db
+*.sqlite3
+
+# Environment / secrets
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# Uploads (runtime data, not baked into image)
+uploads/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docs / scripts not needed at runtime
+README.md
+scripts/
+
+# Gemini agent artifacts
+.gemini/
