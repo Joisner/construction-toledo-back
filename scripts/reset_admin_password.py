@@ -23,7 +23,7 @@ def get_access_token():
     return result.stdout.strip()
 
 def reset_password():
-    new_password = "admin12345"
+    new_password = "123456"
     hashed_password = pwd_context.hash(new_password)
     
     instance_name = "project-f605efd3-c798-4a4b-9e0:europe-southwest1:toledo-db"

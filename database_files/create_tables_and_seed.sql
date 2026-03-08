@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS public.quotes (
 -- Sample inserts (replace passwords appropriately).
 -- Users: create an admin placeholder (use register endpoint to set a proper password)
 INSERT INTO public.users (id, username, email, hashed_password, is_active, is_admin)
-VALUES ('admin-1', 'admin', 'admin@localhost', '$pbkdf2-sha256$29000$sJYyJgSAkHJOibEWwtj7fw$4icEsM6.E5EH1w2jDXpKm39Kfmzxu4A3zgyst0XA0o8', true, true)
+VALUES ('admin-1', 'admin', 'admin@localhost', '$pbkdf2-sha256$29000$S8k551yr1ZpTqlWqtRaCsA$1tNqmF/LUrZ5VrutgkhaVYVnQ4o07bxLzDSj5M7zhjQ', true, true)
 ON CONFLICT (id) DO NOTHING;
 
 -- Sample service

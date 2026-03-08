@@ -1,0 +1,14 @@
+.git
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.db
+.sqlite
+construction.db
+uploads/
+database_files/
+.vscode/
+.antigravity/
+.gemini/

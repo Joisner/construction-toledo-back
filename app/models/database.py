@@ -15,16 +15,9 @@ from urllib.parse import urlparse, urlunparse, quote
 # ---------------------------------------------------------------------------
 
 SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL
-INSTANCE_CONNECTION_NAME = os.getenv("INSTANCE_CONNECTION_NAME")
+INSTANCE_CONNECTION_NAME = settings.INSTANCE_CONNECTION_NAME
 
-if SQLALCHEMY_DATABASE_URL.startswith("sqlite"):
-    # ── SQLite (local development) ────────────────────────────────────────
-    engine = create_engine(
-        SQLALCHEMY_DATABASE_URL,
-        connect_args={"check_same_thread": False},
-    )
-
-elif INSTANCE_CONNECTION_NAME:
+if INSTANCE_CONNECTION_NAME:
     # ── Cloud SQL via Python Connector (production on Cloud Run) ──────────
     from google.cloud.sql.connector import Connector
 
@@ -34,14 +27,21 @@ elif INSTANCE_CONNECTION_NAME:
         return connector.connect(
             INSTANCE_CONNECTION_NAME,
             "pg8000",
-            user=os.getenv("DB_USER", "postgres"),
-            password=os.getenv("DB_PASS", ""),
-            db=os.getenv("DB_NAME", "TOLEDO"),
+            user=settings.DB_USER,
+            password=settings.DB_PASS,
+            db=settings.DB_NAME,
         )
 
     engine = create_engine(
         "postgresql+pg8000://",
         creator=_get_cloud_sql_conn,
+    )
+
+elif SQLALCHEMY_DATABASE_URL.startswith("sqlite"):
+    # ── SQLite (local development) ────────────────────────────────────────
+    engine = create_engine(
+        SQLALCHEMY_DATABASE_URL,
+        connect_args={"check_same_thread": False},
     )
 
 else:
