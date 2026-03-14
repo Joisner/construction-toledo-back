@@ -1,21 +1,19 @@
 from datetime import datetime
 from typing import Any, List, Optional
 import os
-import shutil
 from uuid import uuid4
 
 from fastapi import APIRouter, Depends, HTTPException, status, UploadFile, File, Form
 from app.core.config import settings
+from app.core.storage import storage_service
 from sqlalchemy.orm import Session
 from app.models.database import get_db
 from app.models import models
 from app.schemas import schemas
 from app.api import deps
 
-UPLOAD_DIR = os.path.abspath(os.path.join(os.getcwd(), "uploads", "projects"))
-os.makedirs(UPLOAD_DIR, exist_ok=True)
-
 router = APIRouter()
+
 
 @router.get("/", response_model=List[schemas.Project])
 def get_projects(
@@ -71,7 +69,7 @@ def upload_project_media(
     current_user: models.User = Depends(deps.get_current_active_admin),
 ) -> Any:
     """
-    Upload an image or video for a project. Stores file in `uploads/projects/{project_id}` and
+    Upload an image or video for a project. Stores file in GCS and
     creates a ProjectMedia record.
     """
     project = db.query(models.Project).filter(models.Project.id == project_id).first()
@@ -81,13 +79,10 @@ def upload_project_media(
     # Validate file (mime + size)
     validate_file(file)
 
-    # Save file to disk
-    project_dir = os.path.join(UPLOAD_DIR, project_id)
-    os.makedirs(project_dir, exist_ok=True)
+    # Upload to GCS
     filename = f"{uuid4().hex}_{file.filename}"
-    file_path = os.path.join(project_dir, filename)
-    with open(file_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
+    destination = f"projects/{project_id}/{filename}"
+    file_url = storage_service.upload_file(file, destination)
 
     # Determine media type from content type
     content_type = file.content_type or "application/octet-stream"
@@ -96,7 +91,7 @@ def upload_project_media(
     media = models.ProjectMedia(
         id=uuid4().hex,
         project_id=project_id,
-        file_url=f"/uploads/projects/{project_id}/{filename}",
+        file_url=file_url,
         mime=content_type,
         media_type=media_type,
         description=description,
@@ -118,7 +113,7 @@ def upload_project_main_image(
 ) -> Any:
     """
     Upload a single image to be used as the project's final/main image (used for frontend cards).
-    Stores file in `uploads/projects/{project_id}` and updates the project's `main_image` field.
+    Stores file in GCS and updates the project's `main_image` field.
     """
     project = db.query(models.Project).filter(models.Project.id == project_id).first()
     if not project:
@@ -127,26 +122,16 @@ def upload_project_main_image(
     # Validate file (mime + size)
     validate_file(file)
 
-    project_dir = os.path.join(UPLOAD_DIR, project_id)
-    os.makedirs(project_dir, exist_ok=True)
-
-    # remove previous main image file if present
-    try:
-        if project.main_image:
-            old_filename = os.path.basename(project.main_image)
-            old_path = os.path.join(project_dir, old_filename)
-            if os.path.exists(old_path):
-                os.remove(old_path)
-    except Exception:
-        # ignore deletion errors
-        pass
+    # Delete previous main image from GCS if present
+    if project.main_image and project.main_image.startswith("https://storage.googleapis.com/"):
+        old_destination = _url_to_destination(project.main_image)
+        if old_destination:
+            storage_service.delete_file(old_destination)
 
     filename = f"main_{uuid4().hex}_{file.filename}"
-    file_path = os.path.join(project_dir, filename)
-    with open(file_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
+    destination = f"projects/{project_id}/{filename}"
+    file_url = storage_service.upload_file(file, destination)
 
-    file_url = f"/uploads/projects/{project_id}/{filename}"
     project.main_image = file_url
     project.updated_at = datetime.utcnow()
     db.add(project)
@@ -176,6 +161,14 @@ def validate_file(file: UploadFile) -> None:
         raise HTTPException(status_code=413, detail=f"File too large. Max {settings.UPLOAD_MAX_SIZE_MB} MB allowed")
 
 
+def _url_to_destination(url: str) -> Optional[str]:
+    """Extract the GCS blob destination path from a full public URL."""
+    prefix = f"https://storage.googleapis.com/{settings.GCS_BUCKET_NAME}/"
+    if url.startswith(prefix):
+        return url[len(prefix):]
+    return None
+
+
 @router.post("/{project_id}/media/batch", response_model=List[schemas.ProjectMedia])
 def upload_project_media_batch(
     *,
@@ -193,16 +186,12 @@ def upload_project_media_batch(
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
 
-    project_dir = os.path.join(UPLOAD_DIR, project_id)
-    os.makedirs(project_dir, exist_ok=True)
-
     medias: List[models.ProjectMedia] = []
     for file in files:
         validate_file(file)
         filename = f"{uuid4().hex}_{file.filename}"
-        file_path = os.path.join(project_dir, filename)
-        with open(file_path, "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
+        destination = f"projects/{project_id}/{filename}"
+        file_url = storage_service.upload_file(file, destination)
 
         content_type = file.content_type or "application/octet-stream"
         media_type = "image" if content_type.startswith("image/") else "video" if content_type.startswith("video/") else "file"
@@ -210,7 +199,7 @@ def upload_project_media_batch(
         media = models.ProjectMedia(
             id=uuid4().hex,
             project_id=project_id,
-            file_url=f"/uploads/projects/{project_id}/{filename}",
+            file_url=file_url,
             mime=content_type,
             media_type=media_type,
             description=description,
@@ -234,22 +223,17 @@ def delete_project_media(
     current_user: models.User = Depends(deps.get_current_active_admin),
 ) -> Any:
     """
-    Delete a project's media record and remove the file from disk.
+    Delete a project's media record and remove the file from GCS.
     """
     media = db.query(models.ProjectMedia).filter(models.ProjectMedia.id == media_id).first()
     if not media or media.project_id != project_id:
         raise HTTPException(status_code=404, detail="Media not found")
 
-    # remove physical file
-    try:
-        filename = os.path.basename(media.file_url)
-        project_dir = os.path.join(UPLOAD_DIR, project_id)
-        file_path = os.path.join(project_dir, filename)
-        if os.path.exists(file_path):
-            os.remove(file_path)
-    except Exception:
-        # log? for now ignore file deletion errors
-        pass
+    # Remove file from GCS
+    if media.file_url and media.file_url.startswith("https://storage.googleapis.com/"):
+        destination = _url_to_destination(media.file_url)
+        if destination:
+            storage_service.delete_file(destination)
 
     db.delete(media)
     db.commit()

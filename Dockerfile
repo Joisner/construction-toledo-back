@@ -29,9 +29,6 @@ COPY app/ ./app/
 COPY alembic/ ./alembic/
 COPY alembic.ini .
 
-# Create uploads directory (will be ephemeral in Cloud Run)
-RUN mkdir -p /app/uploads
-
 # Create non-root user for security
 RUN adduser --disabled-password --gecos "" appuser && \
     chown -R appuser:appuser /app

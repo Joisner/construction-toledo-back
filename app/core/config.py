@@ -27,6 +27,8 @@ class Settings(BaseSettings):
         "video/mp4",
         "video/webm",
     ]
+    # Google Cloud Storage
+    GCS_BUCKET_NAME: str = "toledo-media-uploads"
     
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding='utf-8')
 

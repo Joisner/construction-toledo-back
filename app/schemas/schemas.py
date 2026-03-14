@@ -147,7 +147,7 @@ class DocumentBase(BaseModel):
     clientAddress: str
     clientDNI: Optional[str] = None
     clientPhone: Optional[str] = None
-    clientEmail: Optional[EmailStr] = None
+    clientEmail: Optional[str] = None
     items: List[InvoiceItem]
     taxRate: float
     iban: Optional[str] = None

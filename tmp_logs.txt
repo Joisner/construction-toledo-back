@@ -1,0 +1,509 @@
+﻿---
+errorGroups:
+- id: CJPozPWZk6ia3AE
+insertId: 69af17000007369daff3fc7f
+labels:
+  instanceId: 00da6cd2c466adb7eba56586838e665e57443927c45b1c23f7cfb8d46a46742bf048e3531196c309616eb0b3eea16bb351722170e0cbc5016d662774ec0be840eef594233753298ee93eea8d22d5ce654d
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2026-03-09T18:52:48.813544712Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.13/site-packages/uvicorn/protocols/http/h11_impl.py", line 410, in run_asgi
+      result = await app(  # type: ignore[func-returns-value]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+timestamp: '2026-03-09T18:52:48.472733Z'
+---
+errorGroups:
+- id: CK-Vi5rt_pTIDA
+insertId: 69af1700000736326d6c4de4
+labels:
+  instanceId: 00da6cd2c466adb7eba56586838e665e57443927c45b1c23f7cfb8d46a46742bf048e3531196c309616eb0b3eea16bb351722170e0cbc5016d662774ec0be840eef594233753298ee93eea8d22d5ce654d
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2026-03-09T18:52:48.475515465Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+      self.dialect.do_execute(
+      ~~~~~~~~~~~~~~~~~~~~~~~^
+timestamp: '2026-03-09T18:52:48.472626Z'
+---
+httpRequest:
+  latency: 0.023424444s
+  protocol: HTTP/1.1
+  referer: https://toledo-construcciones.web.app/
+  remoteIp: 190.145.240.66
+  requestMethod: GET
+  requestSize: '978'
+  requestUrl: https://backend-toledo-1091873589468.europe-southwest1.run.app/api/v1/budgets/
+  responseSize: '130'
+  serverIp: 34.143.73.2
+  status: 500
+  userAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+    like Gecko) Chrome/145.0.0.0 Safari/537.36
+insertId: 69af17000007154362c422ef
+labels:
+  instanceId: 00da6cd2c466adb7eba56586838e665e57443927c45b1c23f7cfb8d46a46742bf048e3531196c309616eb0b3eea16bb351722170e0cbc5016d662774ec0be840eef594233753298ee93eea8d22d5ce654d
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Frequests
+receiveTimestamp: '2026-03-09T18:52:48.798112449Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+spanId: 148645a167a322fe
+timestamp: '2026-03-09T18:52:48.432929Z'
+trace: projects/project-f605efd3-c798-4a4b-9e0/traces/92dbe5ea7fa1999e6168b6039cc90618
+---
+errorGroups:
+- id: CJPozPWZk6ia3AE
+insertId: 69af16890001a26fd2b23782
+labels:
+  instanceId: 00da6cd2c466adb7eba56586838e665e57443927c45b1c23f7cfb8d46a46742bf048e3531196c309616eb0b3eea16bb351722170e0cbc5016d662774ec0be840eef594233753298ee93eea8d22d5ce654d
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2026-03-09T18:50:49.449370413Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.13/site-packages/uvicorn/protocols/http/h11_impl.py", line 410, in run_asgi
+      result = await app(  # type: ignore[func-returns-value]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+timestamp: '2026-03-09T18:50:49.107119Z'
+---
+errorGroups:
+- id: CK-Vi5rt_pTIDA
+insertId: 69af16890001a206b8304f55
+labels:
+  instanceId: 00da6cd2c466adb7eba56586838e665e57443927c45b1c23f7cfb8d46a46742bf048e3531196c309616eb0b3eea16bb351722170e0cbc5016d662774ec0be840eef594233753298ee93eea8d22d5ce654d
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2026-03-09T18:50:49.110547749Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+      self.dialect.do_execute(
+      ~~~~~~~~~~~~~~~~~~~~~~~^
+timestamp: '2026-03-09T18:50:49.107014Z'
+---
+httpRequest:
+  latency: 0.025838865s
+  protocol: HTTP/1.1
+  referer: https://toledo-construcciones.web.app/
+  remoteIp: 190.145.240.66
+  requestMethod: GET
+  requestSize: '977'
+  requestUrl: https://backend-toledo-1091873589468.europe-southwest1.run.app/api/v1/budgets/
+  responseSize: '130'
+  serverIp: 34.143.73.2
+  status: 500
+  userAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+    like Gecko) Chrome/145.0.0.0 Safari/537.36
+insertId: 69af1689000180f0822e5880
+labels:
+  instanceId: 00da6cd2c466adb7eba56586838e665e57443927c45b1c23f7cfb8d46a46742bf048e3531196c309616eb0b3eea16bb351722170e0cbc5016d662774ec0be840eef594233753298ee93eea8d22d5ce654d
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Frequests
+receiveTimestamp: '2026-03-09T18:50:49.104277698Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+spanId: 60f197ce026859c9
+timestamp: '2026-03-09T18:50:49.071332Z'
+trace: projects/project-f605efd3-c798-4a4b-9e0/traces/a53048c83d42925ff11329988762316f
+traceSampled: true
+---
+errorGroups:
+- id: CJPozPWZk6ia3AE
+insertId: 69af1662000b4ec6a1dc882d
+labels:
+  instanceId: 00da6cd2c466adb7eba56586838e665e57443927c45b1c23f7cfb8d46a46742bf048e3531196c309616eb0b3eea16bb351722170e0cbc5016d662774ec0be840eef594233753298ee93eea8d22d5ce654d
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2026-03-09T18:50:11.080994256Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.13/site-packages/uvicorn/protocols/http/h11_impl.py", line 410, in run_asgi
+      result = await app(  # type: ignore[func-returns-value]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+timestamp: '2026-03-09T18:50:10.741062Z'
+---
+errorGroups:
+- id: CK-Vi5rt_pTIDA
+insertId: 69af1662000b4e7e90afd200
+labels:
+  instanceId: 00da6cd2c466adb7eba56586838e665e57443927c45b1c23f7cfb8d46a46742bf048e3531196c309616eb0b3eea16bb351722170e0cbc5016d662774ec0be840eef594233753298ee93eea8d22d5ce654d
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2026-03-09T18:50:10.745266442Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+      self.dialect.do_execute(
+      ~~~~~~~~~~~~~~~~~~~~~~~^
+timestamp: '2026-03-09T18:50:10.740990Z'
+---
+httpRequest:
+  latency: 0.026873883s
+  protocol: HTTP/1.1
+  referer: https://toledo-construcciones.web.app/
+  remoteIp: 190.145.240.66
+  requestMethod: GET
+  requestSize: '962'
+  requestUrl: https://backend-toledo-1091873589468.europe-southwest1.run.app/api/v1/budgets/
+  responseSize: '130'
+  serverIp: 34.143.73.2
+  status: 500
+  userAgent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+    like Gecko) Chrome/145.0.0.0 Safari/537.36
+insertId: 69af1662000a27ae431906ef
+labels:
+  instanceId: 00da6cd2c466adb7eba56586838e665e57443927c45b1c23f7cfb8d46a46742bf048e3531196c309616eb0b3eea16bb351722170e0cbc5016d662774ec0be840eef594233753298ee93eea8d22d5ce654d
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Frequests
+receiveTimestamp: '2026-03-09T18:50:10.805483469Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+spanId: 9eb882bd0df63e15
+timestamp: '2026-03-09T18:50:10.636533Z'
+trace: projects/project-f605efd3-c798-4a4b-9e0/traces/b578a925ce9d5da1b3d121eda29d5106
+---
+errorGroups:
+- id: CJPozPWZk6ia3AE
+insertId: 69ae6fe1000a2e66e47c517f
+labels:
+  instanceId: 00da6cd2c4ab186929c7b2cdc29ec44b36b738d87901cfd2421459570150b2e7071821801cd0a4e0e65050a68e34929c878f7b3920b1f712a4adf77ade7e9191006b19b250777fcdb4118e6928f21c9710
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2026-03-09T06:59:46.007170537Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.13/site-packages/uvicorn/protocols/http/h11_impl.py", line 410, in run_asgi
+      result = await app(  # type: ignore[func-returns-value]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+timestamp: '2026-03-09T06:59:45.667238Z'
+---
+errorGroups:
+- id: CK-Vi5rt_pTIDA
+insertId: 69ae6fe1000a2dfdf0a55ffa
+labels:
+  instanceId: 00da6cd2c4ab186929c7b2cdc29ec44b36b738d87901cfd2421459570150b2e7071821801cd0a4e0e65050a68e34929c878f7b3920b1f712a4adf77ade7e9191006b19b250777fcdb4118e6928f21c9710
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2026-03-09T06:59:45.670478771Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+      self.dialect.do_execute(
+      ~~~~~~~~~~~~~~~~~~~~~~~^
+timestamp: '2026-03-09T06:59:45.667133Z'
+---
+httpRequest:
+  latency: 0.021996106s
+  protocol: HTTP/1.1
+  referer: https://toledo-construcciones.web.app/
+  remoteIp: 37.29.158.212
+  requestMethod: GET
+  requestSize: '879'
+  requestUrl: https://backend-toledo-1091873589468.europe-southwest1.run.app/api/v1/budgets/
+  responseSize: '130'
+  serverIp: 34.143.72.2
+  status: 500
+  userAgent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15
+    (KHTML, like Gecko) Version/26.2 Mobile/15E148 Safari/604.1
+insertId: 69ae6fe1000a00ac5bdf79da
+labels:
+  instanceId: 00da6cd2c4ab186929c7b2cdc29ec44b36b738d87901cfd2421459570150b2e7071821801cd0a4e0e65050a68e34929c878f7b3920b1f712a4adf77ade7e9191006b19b250777fcdb4118e6928f21c9710
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Frequests
+receiveTimestamp: '2026-03-09T06:59:45.748748288Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+spanId: 3351aa1c8067c791
+timestamp: '2026-03-09T06:59:45.632091Z'
+trace: projects/project-f605efd3-c798-4a4b-9e0/traces/f63597f7c741621f7d41f448f9436fdf
+---
+errorGroups:
+- id: CJPozPWZk6ia3AE
+insertId: 69ae6c5b00061d0d4b2acdd2
+labels:
+  instanceId: 00da6cd2c4ab186929c7b2cdc29ec44b36b738d87901cfd2421459570150b2e7071821801cd0a4e0e65050a68e34929c878f7b3920b1f712a4adf77ade7e9191006b19b250777fcdb4118e6928f21c9710
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2026-03-09T06:44:43.742119384Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.13/site-packages/uvicorn/protocols/http/h11_impl.py", line 410, in run_asgi
+      result = await app(  # type: ignore[func-returns-value]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+timestamp: '2026-03-09T06:44:43.400653Z'
+---
+errorGroups:
+- id: CK-Vi5rt_pTIDA
+insertId: 69ae6c5b00061cb917da6ed5
+labels:
+  instanceId: 00da6cd2c4ab186929c7b2cdc29ec44b36b738d87901cfd2421459570150b2e7071821801cd0a4e0e65050a68e34929c878f7b3920b1f712a4adf77ade7e9191006b19b250777fcdb4118e6928f21c9710
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2026-03-09T06:44:43.406936689Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+      self.dialect.do_execute(
+      ~~~~~~~~~~~~~~~~~~~~~~~^
+timestamp: '2026-03-09T06:44:43.400569Z'
+---
+httpRequest:
+  latency: 0.023599584s
+  protocol: HTTP/1.1
+  referer: https://toledo-construcciones.web.app/
+  remoteIp: 37.29.158.212
+  requestMethod: GET
+  requestSize: '846'
+  requestUrl: https://backend-toledo-1091873589468.europe-southwest1.run.app/api/v1/budgets/
+  responseSize: '130'
+  serverIp: 34.143.79.2
+  status: 500
+  userAgent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15
+    (KHTML, like Gecko) Version/26.2 Mobile/15E148 Safari/604.1
+insertId: 69ae6c5b0005f73f376d62b7
+labels:
+  instanceId: 00da6cd2c4ab186929c7b2cdc29ec44b36b738d87901cfd2421459570150b2e7071821801cd0a4e0e65050a68e34929c878f7b3920b1f712a4adf77ade7e9191006b19b250777fcdb4118e6928f21c9710
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Frequests
+receiveTimestamp: '2026-03-09T06:44:43.726612353Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+spanId: 13d3c4c08a284294
+timestamp: '2026-03-09T06:44:43.361763Z'
+trace: projects/project-f605efd3-c798-4a4b-9e0/traces/1de1502fc1cb9fed9a6e87aa00a71ab8
+---
+errorGroups:
+- id: CJPozPWZk6ia3AE
+insertId: 69ae6c3900013bf21fbbc3bf
+labels:
+  instanceId: 00da6cd2c4ab186929c7b2cdc29ec44b36b738d87901cfd2421459570150b2e7071821801cd0a4e0e65050a68e34929c878f7b3920b1f712a4adf77ade7e9191006b19b250777fcdb4118e6928f21c9710
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2026-03-09T06:44:09.421418954Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.13/site-packages/uvicorn/protocols/http/h11_impl.py", line 410, in run_asgi
+      result = await app(  # type: ignore[func-returns-value]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+timestamp: '2026-03-09T06:44:09.080882Z'
+---
+errorGroups:
+- id: CK-Vi5rt_pTIDA
+insertId: 69ae6c3900013ba8807a6cfa
+labels:
+  instanceId: 00da6cd2c4ab186929c7b2cdc29ec44b36b738d87901cfd2421459570150b2e7071821801cd0a4e0e65050a68e34929c878f7b3920b1f712a4adf77ade7e9191006b19b250777fcdb4118e6928f21c9710
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2026-03-09T06:44:09.083255259Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+      self.dialect.do_execute(
+      ~~~~~~~~~~~~~~~~~~~~~~~^
+timestamp: '2026-03-09T06:44:09.080808Z'
+---
+httpRequest:
+  latency: 0.028472903s
+  protocol: HTTP/1.1
+  referer: https://toledo-construcciones.web.app/
+  remoteIp: 37.29.158.212
+  requestMethod: GET
+  requestSize: '846'
+  requestUrl: https://backend-toledo-1091873589468.europe-southwest1.run.app/api/v1/budgets/
+  responseSize: '130'
+  serverIp: 34.143.79.2
+  status: 500
+  userAgent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15
+    (KHTML, like Gecko) Version/26.2 Mobile/15E148 Safari/604.1
+insertId: 69ae6c38000f320c8b0a0a19
+labels:
+  instanceId: 00da6cd2c4ab186929c7b2cdc29ec44b36b738d87901cfd2421459570150b2e7071821801cd0a4e0e65050a68e34929c878f7b3920b1f712a4adf77ade7e9191006b19b250777fcdb4118e6928f21c9710
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Frequests
+receiveTimestamp: '2026-03-09T06:44:09.070509109Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+spanId: 14aa21718d6e60bc
+timestamp: '2026-03-09T06:44:08.966034Z'
+trace: projects/project-f605efd3-c798-4a4b-9e0/traces/7f8074d23eb4520eb0bcf57e51ad9f2a
+---
+errorGroups:
+- id: CJPozPWZk6ia3AE
+insertId: 69addcf90000d47b01c536a5
+labels:
+  instanceId: 00da6cd2c4332204f1e32f00ea9cd4d0f0be763d815c081b1d5a05b5c76f2cd3a6b86e23720ef96f3bcfb7962a499647ec7a44902af8427fbaff1b9bc61b95cfa8491f0a7131e252bf8735d11a0960d8b8
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2026-03-08T20:32:57.394676193Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.13/site-packages/uvicorn/protocols/http/h11_impl.py", line 410, in run_asgi
+      result = await app(  # type: ignore[func-returns-value]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+timestamp: '2026-03-08T20:32:57.054395Z'
+---
+errorGroups:
+- id: CK-Vi5rt_pTIDA
+insertId: 69addcf90000d434348254a1
+labels:
+  instanceId: 00da6cd2c4332204f1e32f00ea9cd4d0f0be763d815c081b1d5a05b5c76f2cd3a6b86e23720ef96f3bcfb7962a499647ec7a44902af8427fbaff1b9bc61b95cfa8491f0a7131e252bf8735d11a0960d8b8
+logName: projects/project-f605efd3-c798-4a4b-9e0/logs/run.googleapis.com%2Fstderr
+receiveTimestamp: '2026-03-08T20:32:57.058805240Z'
+resource:
+  labels:
+    configuration_name: backend-toledo
+    location: europe-southwest1
+    project_id: project-f605efd3-c798-4a4b-9e0
+    revision_name: backend-toledo-00001-pd9
+    service_name: backend-toledo
+  type: cloud_run_revision
+severity: ERROR
+textPayload: |-
+  Traceback (most recent call last):
+    File "/usr/local/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 1967, in _exec_single_context
+      self.dialect.do_execute(
+      ~~~~~~~~~~~~~~~~~~~~~~~^
+timestamp: '2026-03-08T20:32:57.054324Z'
