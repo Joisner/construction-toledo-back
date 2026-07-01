@@ -115,3 +115,5 @@ uploads/
 **/__pycache__/
 
 # End of .gitignore
+__pycache__/
+*.py[cod]
