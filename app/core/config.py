@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     # Upload settings
-    UPLOAD_MAX_SIZE_MB: int = 50  # maximum file size in megabytes
+    UPLOAD_MAX_SIZE_MB: int = 1024  # maximum file size in megabytes (default 1 GB)
     UPLOAD_ALLOWED_MIMES: list[str] = [
         "image/jpeg",
         "image/png",

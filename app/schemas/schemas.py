@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Optional, Literal
 from pydantic import BaseModel, EmailStr
 
 # User schemas
@@ -7,6 +7,7 @@ class UserBase(BaseModel):
     username: str
     email: EmailStr
     is_admin: bool = False
+    has_attendance: bool = False
 
 class UserCreate(UserBase):
     password: str
@@ -18,6 +19,7 @@ class UserUpdate(BaseModel):
     password: Optional[str] = None
     is_active: Optional[bool] = None
     is_admin: Optional[bool] = None
+    has_attendance: Optional[bool] = None
 
 class User(UserBase):
     id: str
@@ -112,9 +114,44 @@ class Token(BaseModel):
     access_token: str
     token_type: str
 
+
+class TokenResponse(BaseModel):
+    access_token: str
+    token_type: str
+    username: str
+    email: EmailStr
+    is_admin: bool
+    is_active: bool
+    has_attendance: bool
+
 class TokenPayload(BaseModel):
     sub: str
     exp: datetime
+
+
+# Attendance schemas
+class AttendanceBase(BaseModel):
+    worker_id: int
+    worker_name: str
+    type: Literal['ENTRADA', 'SALIDA']
+    time: str
+    date: str
+    date_iso: str
+    photo: str
+    timestamp: str
+
+class AttendanceCreate(BaseModel):
+    worker_id: int
+    worker_name: str
+    type: Literal['ENTRADA', 'SALIDA']
+    photo: str
+    timestamp: str
+
+class Attendance(AttendanceBase):
+    id: int
+
+    class Config:
+        from_attributes = True
 
 
 # Invoice / Budget related schemas

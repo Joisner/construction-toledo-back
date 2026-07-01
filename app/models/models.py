@@ -1,5 +1,5 @@
 from uuid import uuid4
-from sqlalchemy import Boolean, Column, String, Text, ForeignKey, DateTime, JSON
+from sqlalchemy import Boolean, Column, String, Text, ForeignKey, DateTime, JSON, Integer
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from .database import Base
@@ -13,6 +13,21 @@ class User(Base):
     hashed_password = Column(String)
     is_active = Column(Boolean, default=True)
     is_admin = Column(Boolean, default=False)
+    has_attendance = Column(Boolean, default=False)
+
+class AttendanceRecord(Base):
+    __tablename__ = "attendance_records"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    worker_id = Column(Integer, index=True)
+    worker_name = Column(String, default="")
+    type = Column(String, index=True)
+    time = Column(String)
+    date = Column(String, index=True)
+    date_iso = Column(String)
+    photo = Column(String)
+    timestamp = Column(String)
+    created_at = Column(DateTime, default=datetime.utcnow)
 
 class Project(Base):
     __tablename__ = "projects"

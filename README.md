@@ -33,6 +33,7 @@ Backend API for the Construction Company website built with FastAPI.
    SECRET_KEY=your-secret-key
    ALGORITHM=HS256
    ACCESS_TOKEN_EXPIRE_MINUTES=30
+   UPLOAD_MAX_SIZE_MB=1024
    ```
 
 Postgres quick setup (example)
